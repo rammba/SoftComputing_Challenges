@@ -1,4 +1,4 @@
-# import libraries here
+import os
 import datetime
 import cv2
 from PIL import Image
@@ -13,7 +13,7 @@ from fuzzywuzzy import fuzz
 
 matplotlib.rcParams['figure.figsize'] = 16, 12
 
-pyocr.tesseract.TESSERACT_CMD = r'C:\Program Files\Tesseract\Tesseract-OCR\tesseract.exe'
+pyocr.tesseract.TESSERACT_CMD = os.environ.get("TESSERACT_EXE_PATH")
 tools = pyocr.get_available_tools()
 if len(tools) == 0:
     sys.exit(1)
